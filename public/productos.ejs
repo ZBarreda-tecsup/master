@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>%= title %></title>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <p>Productos</p>
+    <nav>
+        <a href="/">Inicio</a>
+        <a href="/clientes">Clientes</a>
+        <a href="/productos">Productos</a>
+      </nav>
+  <h1>Productos</h1>
+  <form action="/productos/add" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre del Producto" required>
+    <input type="number" step="0.01" name="precio" placeholder="Precio" required>
+    <button type="submit">Agregar Producto</button>
+  </form>
+  <ul>
+    <% if (productos.length === 0) { %>
+      <li>No hay productos registrados.</li>
+    <% } else { %>
+      <% productos.forEach(producto => { %>
+        <li><%= producto.nombre %> - $<%= producto.precio %></li>
+      <% }) %>
+    <% } %>
+  </ul>
 </body>
 </html>

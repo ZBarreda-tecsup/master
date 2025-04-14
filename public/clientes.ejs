@@ -1,13 +1,32 @@
-<!-- filepath: c:\Users\ASUS ZEPHYRUS\Desktop\Desarrollo en la Nube\Semana4\views\clientes.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>Clientes</h1>
-    <p>Bienvenido a la página de clientes.</p>
+  <nav>
+    <a href="/">Inicio</a>
+    <a href="/clientes">Clientes</a>
+    <a href="/productos">Productos</a>
+  </nav>
+  <h1>Clientes</h1>
+  <form action="/clientes/add" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="text" name="apellido" placeholder="Apellido" required>
+    <input type="text" name="producto_comprado" placeholder="Producto Comprado" required>
+    <input type="date" name="fecha" required>
+    <button type="submit">Agregar Cliente</button>
+  </form>
+  <ul>
+    <% if (clientes.length === 0) { %>
+      <li>No hay clientes registrados.</li>
+    <% } else { %>
+      <% clientes.forEach(cliente => { %>
+        <li><%= cliente.nombre %> <%= cliente.apellido %> - <%= cliente.producto_comprado %> - <%= cliente.fecha %></li>
+      <% }) %>
+    <% } %>
+  </ul>
 </body>
 </html>

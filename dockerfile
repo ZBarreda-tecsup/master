@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:18
 
 WORKDIR /app
 
@@ -8,4 +8,5 @@ RUN npm install
 COPY . .
 
 EXPOSE 9000
+
 CMD ["node", "app.js"]

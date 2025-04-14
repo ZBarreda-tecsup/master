@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>%= title %></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title><%= title %></title>
+  <style>
+    .container {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 600px;
+      margin: 50px auto;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <h1>Hola mundo</h1>
+  <nav>
+    <a href="/">Inicio</a>
+    <a href="/clientes">Clientes</a>
+    <a href="/productos">Productos</a>
+  </nav>
+  <div class="container">
+    <h1>Registro de Clientes y Productos</h1>
+    <p>Esta página permite registrar clientes y productos, y verlos en tiempo real.</p>
+  </div>
 </body>
 </html>
